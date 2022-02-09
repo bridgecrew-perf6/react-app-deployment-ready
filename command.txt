@@ -1,0 +1,15 @@
+eval $(minikube docker-env) (For local kubernetes to get docker image)
+docker build -t frontend-image -f docker/Dockerfile .
+docker run --name frontend-app -it -p 3000:80 --expose 3000 frontend-image
+
+
+Kubernetes commands
+kubectl apply -f deployment/deployment.yaml -n ogre-dev
+kubectl expose deployment frontend-deployment --type=LoadBalancer --port=3000 -n ogre-dev
+or 
+kubectl apply -f deployment/service.yaml -n ogre-dev
+
+// kubectl port ranges 30000-32767 
+
+minikube service frontend-service -n ogre-dev
+minikube service frontend-service --url -n ogre-dev

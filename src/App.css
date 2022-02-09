@@ -1,0 +1,19 @@
+.app {
+  padding: 20px;
+}
+
+.order-list {
+  display: flex;
+  column-gap: 2em;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.order-list .order-card {
+  background: #efefef;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 1px 1px 1px #ccc;
+  font-size: 14px;
+  line-height: 20px;
+}

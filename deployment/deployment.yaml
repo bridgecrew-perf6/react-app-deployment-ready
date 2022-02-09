@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app-deployment
+  labels:
+    app: frontend-react-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-react-app
+  template:
+    metadata:
+      labels:
+        app: frontend-react-app
+    spec:
+      containers:
+      - name: frontend-react-app
+        image: frontend-react-app-image
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        env:
+        - name: PORT
+          value: "80"
